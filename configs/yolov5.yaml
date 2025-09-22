@@ -1,0 +1,38 @@
+experiment:
+  imgsz: 640
+  epochs: 20
+  batch: 16
+  workers: 4
+  conf_thres: 0.25
+  iou_thres: 0.5
+  seed: 42
+
+dataset:
+  yaml: datasets/yolo/parkinglot.yaml
+  folds: 5
+  fold_index: 0
+
+wandb:
+  project: ParkingLotOD
+  entity: null
+  run_name: null
+
+model:
+  name: yolov5
+  weights: null
+  optimizer: sgd      # v5 common default
+  lr0: 0.01
+  lrf: 0.0005
+  weight_decay: 0.0005
+
+augment:
+  hsv: true
+  flip: true
+  scale: true
+  affine: true
+  cutout: true
+  mixup: true
+
+search:
+  trials: 25
+  timeout_min: null

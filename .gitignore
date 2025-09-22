@@ -1,0 +1,10 @@
+external
+datasets
+*/__pycache__
+*/__pycache__/*
+**/__pycache__
+**/__pycache__/** 
+*.__pyc
+runs
+wandb
+*.pt

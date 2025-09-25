@@ -1,6 +1,6 @@
 experiment:
   imgsz: 640
-  epochs: 3
+  epochs: 10
   batch: 16
   workers: 4
   conf_thres: 0.25
@@ -9,11 +9,11 @@ experiment:
 
 dataset:
   yaml: datasets/yolo/parkinglot.yaml
-  folds: 2
+  folds: 5
   fold_index: 0
 
 wandb:
-  project: ParkingLotOD
+  project: ParkingLotOD-YOLOv3
   entity: null
   run_name: null
 
@@ -21,8 +21,8 @@ model:
   name: yolov3
   weights: null
   optimizer: adam     # often used for v3; you can switch to sgd if preferred
-  lr0: 0.001
-  lrf: 0.007
+  lr0: 0.003
+  lrf: 0.04
   weight_decay: 0.00001
 
 augment:
@@ -36,3 +36,6 @@ augment:
 search:
   trials: 25
   timeout_min: null
+
+
+

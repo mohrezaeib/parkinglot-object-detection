@@ -10,11 +10,14 @@ def suggest_core(trial: optuna.Trial, model: str):
         optimizer = trial.suggest_categorical("optimizer", ["auto", "sgd", "adamw"])
     else:
         optimizer = trial.suggest_categorical("optimizer", ["sgd", "adam"])
-
-    lr0 = trial.suggest_float("lr0", 1e-4, 1e-2, log=True)
-    lrf = trial.suggest_float("lrf", 5e-4, 5e-2, log=True)
-    wd  = trial.suggest_float("weight_decay", 1e-6, 5e-4, log=True)
-
+    if model == "yolov8":
+        lr0 = trial.suggest_float("lr0", 1e-4, 1e-2, log=True)
+        lrf = trial.suggest_float("lrf", 5e-4, 5e-2, log=True)
+        wd  = trial.suggest_float("weight_decay", 1e-6, 5e-4, log=True)
+    else:
+        lr0 = trial.suggest_float("lr0", 1e-4, 1e-2, log=True)
+        lrf = trial.suggest_float("lrf", 5e-4, 5e-2, log=True)
+        wd  = trial.suggest_float("weight_decay", 1e-6, 1e-3, log=True)
     return dict(imgsz=imgsz, batch=batch, optimizer=optimizer, lr0=lr0, lrf=lrf, weight_decay=wd)
 
 def suggest_aug(trial: optuna.Trial):

@@ -97,7 +97,7 @@ python train.py \
 or
 
 ```bash
-python train.py --config configs/yolov5.yaml
+python train.py --config configs/yolov8.yaml
 ```
 ## Evaluate on test (mAP + **count MAE/RMSE**)
 

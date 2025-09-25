@@ -1,6 +1,6 @@
 experiment:
   imgsz: 640
-  epochs: 10
+  epochs: 30
   batch: 16
   workers: 4
   conf_thres: 0.25
@@ -9,21 +9,21 @@ experiment:
 
 dataset:
   yaml: datasets/yolo/parkinglot.yaml
-  folds: 3
+  folds: 5
   fold_index: 0
 
 wandb:
-  project: ParkingLotOD
+  project: ParkingLotOD-YOLOv8
   entity: null
-  run_name: "run3fold"
+  run_name: null
 
 model:
   name: yolov8        # yolov8 | yolov5 | yolov3
   weights: null
   optimizer: auto     # YOLOv8 default (AdamW/auto)
-  lr0: 0.0002
-  lrf: 0.04
-  weight_decay: 0.00012
+  lr0: 0.00031
+  lrf: 0.024
+  weight_decay: 3.42e-06
 
 
 augment:
